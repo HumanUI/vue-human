@@ -1,37 +1,54 @@
 @import "../variables";
 $-topnav-bar: #{$namespace}topnav-bar;
+$-topnav-bar-back: #{$namespace}topnav-bar-back;
 $-topnav-bar-button: #{$namespace}topnav-bar-button;
 $-topnav-bar-size: 44px;
+$-topnav-bar-fontsize: 0.9rem;
 
 
 .#{$-topnav-bar}{
+	display: flex;
 	height: $-topnav-bar-size;
 	z-index: 99;
 	position: absolute;
 	width: 100%;
 	left: 0;
 	top: 0;
-  & > a,& > .#{$-topnav-bar-button}{
-  	position: absolute;
-  	top: 0;
-  	line-height: $-topnav-bar-size;
-  }
+	line-height: $-topnav-bar-size;
+	background: #37ab40;
+	color: #fff;
+	padding: 0 10px;
   & > h4{
-  	margin: auto;
+  	flex: 1;
   	line-height: $-topnav-bar-size;
   	text-align: center;
+  	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+     font-size: $-topnav-bar-fontsize;
   }
-  & > .#{$-topnav-bar-button}:focus{
-  	outline: none;
-  } 
-  & > a{
-  	left: 0;
+  & > .#{$-topnav-bar-button},& > .#{$-topnav-bar-back}{
+  	flex: 0.5;
+    font-size: $-topnav-bar-fontsize;
+    & button{
+        color: #fff;
+        height: $-topnav-bar-size;
+        border: 0;
+        background: transparent;
+        padding: 0;
+        margin:0;
+        &:focus{
+          outline: none;
+        }
+        &:active,&:hover{
+          background: transparent;
+        }
+    }
   }
   & > .#{$-topnav-bar-button}{
-  	right: 0.3rem;;
-  	padding: 0;
-  	margin: 0;
-  	border: none;
-  	background: none;
+  	display: flex;
+    justify-content: flex-end;
+  	
   }
 }
