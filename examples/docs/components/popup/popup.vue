@@ -17,7 +17,6 @@
     </mn-card>
   </mn-popup>
 </template>
-
 <script>
   export default {
     methods: {

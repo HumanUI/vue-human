@@ -1,0 +1,27 @@
+@import "../variables";
+$-topnav-bar: #{$namespace}topnav-bar;
+$-topnav-bar-button: #{$namespace}topnav-bar-button;
+$-topnav-bar-size: 44px;
+
+
+.#{$-topnav-bar}{
+	display: flex;
+	height: $-topnav-bar-size;
+	z-index: 99;
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 0;
+  justify-content: space-between;
+  align-items: center;
+  & > a,& > .#{$-topnav-bar-button}{
+  	flex:1 0 1.5rem;
+  }
+  & > h4{
+  	flex: 2 0 auto;
+  	text-align: center
+  }
+  & > .#{$-topnav-bar-button}:focus{
+  	outline: none
+  }
+}
