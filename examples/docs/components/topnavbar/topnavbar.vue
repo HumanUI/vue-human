@@ -3,7 +3,7 @@
     <mn-card>
       <mn-card-item>
         <div class="topnavbox">
-          <mn-top-nav-bar :title="title" btnshow @click="dosomething">
+          <mn-top-nav-bar :title="title" btnshow @btnclick="dosomething">
             <span slot="backText">{{backText}}</sapn>
           </mn-top-nav-bar>
         </div>
@@ -11,13 +11,13 @@
     </mn-card>
   </div>
 </template>
-
+  
 <script>
   export default {
     data () {
       return {
         title: 'the title',
-        backText: 'back'
+        backText: '返回'
       }
     },
     methods: {

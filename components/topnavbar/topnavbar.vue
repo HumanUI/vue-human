@@ -8,7 +8,7 @@
     v-if="btnshow"
     type="button"
     class="topnav-bar-button"
-    @click="button"><mn-icon name="ios-settings-strong"></mn-icon></button>
+    @click="btnclick"><mn-icon name="more"></mn-icon></button>
   </div>
 </template>
 <script>
@@ -31,8 +31,8 @@
       routergo () {
         this.$router.go(-1)
       },
-      button () {
-        this.$emit('click')
+      btnclick () {
+        this.$emit('btnclick')
       }
     }
   }

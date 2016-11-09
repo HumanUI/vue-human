@@ -5,23 +5,33 @@ $-topnav-bar-size: 44px;
 
 
 .#{$-topnav-bar}{
-	display: flex;
 	height: $-topnav-bar-size;
 	z-index: 99;
 	position: absolute;
 	width: 100%;
 	left: 0;
 	top: 0;
-  justify-content: space-between;
-  align-items: center;
   & > a,& > .#{$-topnav-bar-button}{
-  	flex:1 0 1.5rem;
+  	position: absolute;
+  	top: 0;
+  	line-height: $-topnav-bar-size;
   }
   & > h4{
-  	flex: 2 0 auto;
-  	text-align: center
+  	margin: auto;
+  	line-height: $-topnav-bar-size;
+  	text-align: center;
   }
   & > .#{$-topnav-bar-button}:focus{
-  	outline: none
+  	outline: none;
+  } 
+  & > a{
+  	left: 0;
+  }
+  & > .#{$-topnav-bar-button}{
+  	right: 0.3rem;;
+  	padding: 0;
+  	margin: 0;
+  	border: none;
+  	background: none;
   }
 }
