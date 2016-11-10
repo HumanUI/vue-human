@@ -1,6 +1,6 @@
-$-label: #{$namespace}label;
+$-tag: #{$namespace}tag;
 
-$-label-style: (
+$-tag-style: (
   primary: $green,
   warning: $orange,
   error: $pink,
@@ -9,10 +9,10 @@ $-label-style: (
 );
 
 @mixin get-color($type) {
-  background-color: map-get($-label-style, $type);
+  background-color: map-get($-tag-style, $type);
 }
 
-.#{$-label}{
+.#{$-tag}{
   font-size: 0.9rem;
   padding: 0.1rem 0.6rem;
   display: inline-block;

@@ -15,7 +15,7 @@
       classes () {
         let classes = {}
         // basic class
-        classes[`${this.$human.cssPrefix}label`] = true
+        classes[`${this.$human.cssPrefix}tag`] = true
         // type
         classes[`is-${this.type}`] = this.type
         // return default and now classes

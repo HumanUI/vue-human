@@ -1,0 +1,59 @@
+$-quantity-control: #{$namespace}quantity-control;
+$-quantity-increase-button: #{$namespace}quantity-increase-button;
+$-quantity-reduce-button: #{$namespace}quantity-reduce-button;
+$-quantity-input: #{$namespace}quantity-input;
+$quantity-base-color: #999;
+$quantity-base-background: #fafafa;
+$quantity-base-radius: 5px;
+
+.#{$-quantity-control}{
+  display: flex;
+}
+
+.#{$-quantity-increase-button},
+.#{$-quantity-reduce-button}{
+  flex: 0 2rem;
+  width: 2rem;
+  height: 2rem;
+  background: $quantity-base-background;
+  border: 1px solid $quantity-base-color;
+  padding: 0;
+  margin: 0;
+  line-height: 1rem;
+  outline: none;
+  cursor: pointer;
+  .icon{
+    color: $quantity-base-color;
+    width: 1rem;
+    height: 1rem;
+  }
+  &.is-disabled{
+    cursor: not-allowed;
+    .icon{
+      color: lighten($quantity-base-color, 20%);
+    }
+  }
+}
+.#{$-quantity-increase-button}{
+  border-radius: 0px $quantity-base-radius $quantity-base-radius 0px;
+  border-left: 0;
+}
+.#{$-quantity-reduce-button}{
+  border-radius: $quantity-base-radius 0px 0px $quantity-base-radius;
+  border-right: 0;
+}
+
+.#{$-quantity-input}{
+  flex: 0 3rem;
+  width: 3rem;
+  height: 2rem;
+  background: $quantity-base-background;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border: 1px solid $quantity-base-color;
+  line-height: 1rem;
+  text-align: center;
+  outline: none;
+  font-size: 0.8rem;
+}

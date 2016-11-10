@@ -1,23 +1,24 @@
 <template>
   <div class="section">
+
     <div class="letter">
       <div class="letter-body">
-        <h1>Label</h1>
-        <small>label</small>
+        <h1>Control</h1>
+        <small>input, button</small>
       </div>
     </div>
 
-    <demo-label></demo-label>
+    <demo-quantity-control></demo-quantity-control>
 
   </div>
 </template>
 
 <script>
-  import DemoLabel from './label'
+  import DemoQuantityControl from './quantity-control'
 
   export default {
     components: {
-      DemoLabel
+      DemoQuantityControl
     }
   }
 </script>

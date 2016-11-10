@@ -94,9 +94,24 @@
                 route: { path: '/components/tab' }
               },
               {
-                title: 'label',
+                title: 'tag',
                 icon: 'pricetags',
-                route: { path: '/components/label' }
+                route: { path: '/components/tag' }
+              },
+              {
+                title: 'rate',
+                icon: 'ios-star',
+                route: { path: '/components/rate' }
+              },
+              {
+                title: 'control',
+                icon: 'ios-settings-strong',
+                route: { path: '/components/control' }
+              },
+              {
+                title: 'topnavbar',
+                icon: 'chevron-left',
+                route: { path: '/components/topnavbar' }
               }
             ]
           }

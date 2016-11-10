@@ -1,6 +1,6 @@
 <template>
   <div :class="search">
-    <div :class="search_input">
+    <div :class="searchInput">
       <mn-icon name="ios-search-strong"></mn-icon>
       <input
         type="text"
@@ -14,7 +14,7 @@
     </div>
     <transition name="bar-search">
       <button
-        :class="search_button"
+        :class="searchButton"
         @click="show = false"
         v-if="show"
       >cancel</button>
@@ -55,16 +55,12 @@
       search () {
         return this.setClass('bar-search')
       },
-      search_input () {
+      searchInput () {
         return this.setClass('bar-search-input')
       },
-      search_button () {
+      searchButton () {
         return this.setClass('bar-search-button')
       }
     }
   }
 </script>
-
-<style>
-
-</style>
