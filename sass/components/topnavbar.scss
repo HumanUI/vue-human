@@ -3,21 +3,23 @@ $-topnav-bar: #{$namespace}topnav-bar;
 $-topnav-bar-back: #{$namespace}topnav-bar-back;
 $-topnav-bar-button: #{$namespace}topnav-bar-button;
 $-topnav-bar-size: 44px;
-$-topnav-bar-fontsize: 0.9rem;
+$-topnav-bar-fontsize: 0.8rem;
 
 
 .#{$-topnav-bar}{
 	display: flex;
 	height: $-topnav-bar-size;
 	z-index: 99;
-	position: absolute;
 	width: 100%;
-	left: 0;
-	top: 0;
 	line-height: $-topnav-bar-size;
-	background: #37ab40;
+	background: $teal-blue;
 	color: #fff;
 	padding: 0 10px;
+  &.is-fixed{
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
   & > h4{
   	flex: 1;
   	line-height: $-topnav-bar-size;
@@ -26,7 +28,7 @@ $-topnav-bar-fontsize: 0.9rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: normal;
-     font-size: $-topnav-bar-fontsize;
+    font-size: $-topnav-bar-fontsize;
   }
   & > .#{$-topnav-bar-button},& > .#{$-topnav-bar-back}{
   	flex: 0.5;
@@ -38,11 +40,15 @@ $-topnav-bar-fontsize: 0.9rem;
         background: transparent;
         padding: 0;
         margin:0;
+        vertical-align: baseline;
         &:focus{
           outline: none;
         }
         &:active,&:hover{
           background: transparent;
+        }
+        & svg{
+          vertical-align: -5px;
         }
     }
   }

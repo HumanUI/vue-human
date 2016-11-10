@@ -1,5 +1,5 @@
 <template>
-  <div class='topnav-bar'>
+  <div class='topnav-bar' :class="{'is-fixed': fixed}">
     <div class="topnav-bar-back">
       <slot name="back"></slot>
     </div>
@@ -19,6 +19,10 @@
       title: {
         type: String,
         default: ''
+      },
+      fixed: {
+        type: Boolean,
+        default: false
       }
     },
     methods: {

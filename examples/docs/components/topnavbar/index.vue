@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section example">
     <mn-letter>
       <h1>Top nav bar</h1>
       <small>title</small>
@@ -17,3 +17,9 @@
     }
   }
 </script>
+<style scoped>
+  .example{
+    height: 800px;
+    margin-top: 44px;
+  }
+</style>
