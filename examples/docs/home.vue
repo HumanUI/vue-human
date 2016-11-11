@@ -109,9 +109,9 @@
                 route: { path: '/components/control' }
               },
               {
-                title: 'topnavbar',
+                title: 'navbar',
                 icon: 'ios-arrow-left',
-                route: { path: '/components/topnavbar' }
+                route: { path: '/components/navbar' }
               }
             ]
           }

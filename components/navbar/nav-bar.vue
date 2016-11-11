@@ -1,16 +1,16 @@
 <template>
-  <div :class="cssPrefix">
-    <div :class="[cssPrefix + '-left']">
+  <div :class="[`${cssPrefix}nav-bar`]">
+    <div :class="[`${cssPrefix}nav-bar-left`]">
       <slot name="left"></slot>
     </div>
     <h1 v-if="$slots.title">
       <mn-icon name="load-a" spin v-if="loading"></mn-icon>
       <slot name="title"></slot>
     </h1>
-    <div :class="[cssPrefix+'-center']" v-if="$slots.center">
+    <div :class="[`${cssPrefix}nav-bar-center`]" v-if="$slots.center">
       <slot name="center"></slot>
     </div>
-    <div :class="[cssPrefix +'-right']">
+    <div :class="[`${cssPrefix}nav-bar-right`]">
       <slot name="right"></slot>
     </div>
   </div>
@@ -29,7 +29,7 @@
     },
     computed: {
       cssPrefix () {
-        return `${this.$human.cssPrefix}top-nav-bar`
+        return this.$human.cssPrefix
       }
     }
   }

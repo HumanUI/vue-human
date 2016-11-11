@@ -1,17 +1,17 @@
 @import "../variables";
-$-top-nav-bar: #{$namespace}top-nav-bar;
-$-top-nav-bar-left: #{$namespace}top-nav-bar-left;
-$-top-nav-bar-right: #{$namespace}top-nav-bar-right;
-$-top-nav-bar-title: #{$namespace}top-nav-bar-title;
-$-top-nav-bar-center: #{$namespace}top-nav-bar-center;
-$-top-nav-bar-size: 44px;
-$-top-nav-bar-fontsize: 0.9rem;
+$-nav-bar: #{$namespace}nav-bar;
+$-nav-bar-left: #{$namespace}nav-bar-left;
+$-nav-bar-right: #{$namespace}nav-bar-right;
+$-nav-bar-title: #{$namespace}nav-bar-title;
+$-nav-bar-center: #{$namespace}nav-bar-center;
+$-nav-bar-size: 44px;
+$-nav-bar-fontsize: 0.9rem;
 
 
-.#{$-top-nav-bar}{
+.#{$-nav-bar}{
 	display: flex;
   align-items: center;
-	height: $-top-nav-bar-size;
+	height: $-nav-bar-size;
 	z-index: 99;
 	width: 100%;
   position: relative;
@@ -19,7 +19,7 @@ $-top-nav-bar-fontsize: 0.9rem;
 	color: #fff;
 	padding: 0 10px 0 5px;
   white-space: nowrap;
-  font-size: $-top-nav-bar-fontsize;
+  font-size: $-nav-bar-fontsize;
   & h1{
     flex: 1;
     text-align: center;
@@ -37,17 +37,17 @@ $-top-nav-bar-fontsize: 0.9rem;
   & .icon{
     vertical-align: -5px;
   }
-  & > .#{$-top-nav-bar-center}{
+  &-center{
     flex: 4;
     & input{
       margin-bottom: 0;
     }
   }
-  & > .#{$-top-nav-bar-left},& > .#{$-top-nav-bar-right}{
+  &-left,&-right{
     flex: .5;
     & button{
         color: inherit;
-        height: $-top-nav-bar-size;
+        height: $-nav-bar-size;
         font-size: inherit;
         border: 0;
         background: transparent;
@@ -61,7 +61,7 @@ $-top-nav-bar-fontsize: 0.9rem;
         }
     }
   }
-  & > .#{$-top-nav-bar-right}{
+  &-right{
   	text-align: right;
   }
 }

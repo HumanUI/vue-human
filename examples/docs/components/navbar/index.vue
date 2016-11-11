@@ -1,19 +1,19 @@
 <template>
   <div class="section">
     <mn-letter>
-      <h1>Top nav bar</h1>
+      <h1>Nav bar</h1>
       <small>title</small>
     </mn-letter>
-    <demo-top-nav-bar></demo-top-nav-bar>
+    <demo-nav-bar></demo-nav-bar>
   </div>
 </template>
 
 <script>
-  import DemoTopNavBar from './top-nav-bar'
+  import DemoNavBar from './nav-bar'
 
   export default {
     components: {
-      DemoTopNavBar
+      DemoNavBar
     }
   }
 </script>

@@ -1,44 +1,36 @@
 <template>
   <div> 
     <mn-card>
-      <mn-top-nav-bar>
-        <router-link to="/" slot="left">
-          <mn-btn >
-            <mn-icon name="ios-arrow-left"></mn-icon>back
-          </mn-btn>
-        </router-link>
+      <mn-nav-bar>
+        <mn-btn slot="left" @click.native.prevent="back">
+          <mn-icon name="ios-arrow-left"></mn-icon>back
+        </mn-btn>
         <template slot="title">text and icon ,hide lang text</template>
         <mn-btn slot="right" @click.native.prevent="getEle()">
           share
         </mn-btn>
-      </mn-top-nav-bar>
-      <mn-top-nav-bar>
-        <router-link to="/" slot="left">
-          <mn-btn >
+      </mn-nav-bar>
+      <mn-nav-bar>
+        <mn-btn slot="left" @click.native.prevent="back">
             <mn-icon name="ios-arrow-left"></mn-icon>
-          </mn-btn>
-        </router-link>
+        </mn-btn>
         <template slot="title">just icon</template>
         <mn-btn slot="right" @click.native.prevent="doSomething()">
           <mn-icon name="more"></mn-icon>
         </mn-btn>
-      </mn-top-nav-bar>
-      <mn-top-nav-bar loading>
-        <router-link to="/" slot="left">
-          <mn-btn >
+      </mn-nav-bar>
+      <mn-nav-bar loading>
+        <mn-btn slot="left" @click.native.prevent="back">
             <mn-icon name="ios-arrow-left"></mn-icon>
-          </mn-btn>
-        </router-link>
+        </mn-btn>
         <template slot="title">loading</template>
-      </mn-top-nav-bar>
-      <mn-top-nav-bar>
-        <router-link to="/" slot="left">
-          <mn-btn >
+      </mn-nav-bar>
+      <mn-nav-bar>
+        <mn-btn slot="left" @click.native.prevent="back">
             <mn-icon name="ios-arrow-left"></mn-icon>
-          </mn-btn>
-        </router-link>
+        </mn-btn>
         <mn-search-bar slot="center"></mn-search-bar>
-      </mn-top-nav-bar>
+      </mn-nav-bar>
     </mn-card>
   </div>
 </template>
@@ -55,6 +47,9 @@
       },
       getEle () {
         console.log(this.$el)
+      },
+      back () {
+        this.$router.go(-1)
       }
     }
   }
@@ -62,7 +57,7 @@
 <style scoped lang="scss">
   .card{
     padding-top: 15px;
-    & > *{
+    &>h1,&>div{
       margin-bottom: 15px;
     }
   }
