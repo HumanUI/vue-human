@@ -107,6 +107,11 @@
                 title: 'control',
                 icon: 'ios-settings-strong',
                 route: { path: '/components/control' }
+              },
+              {
+                title: 'topnavbar',
+                icon: 'ios-arrow-left',
+                route: { path: '/components/topnavbar' }
               }
             ]
           }
