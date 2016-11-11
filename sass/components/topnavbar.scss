@@ -1,0 +1,67 @@
+@import "../variables";
+$-top-nav-bar: #{$namespace}top-nav-bar;
+$-top-nav-bar-left: #{$namespace}top-nav-bar-left;
+$-top-nav-bar-right: #{$namespace}top-nav-bar-right;
+$-top-nav-bar-title: #{$namespace}top-nav-bar-title;
+$-top-nav-bar-center: #{$namespace}top-nav-bar-center;
+$-top-nav-bar-size: 44px;
+$-top-nav-bar-fontsize: 0.9rem;
+
+
+.#{$-top-nav-bar}{
+	display: flex;
+  align-items: center;
+	height: $-top-nav-bar-size;
+	z-index: 99;
+	width: 100%;
+  position: relative;
+	background: $teal-blue;
+	color: #fff;
+	padding: 0 10px 0 5px;
+  white-space: nowrap;
+  font-size: $-top-nav-bar-fontsize;
+  & h1{
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: normal;
+    font-size: inherit;
+  }
+  & a{
+    outline: none;
+    color: inherit;
+    font-size: inherit;
+  }
+  & .icon{
+    vertical-align: -5px;
+  }
+  & > .#{$-top-nav-bar-center}{
+    flex: 4;
+    & input{
+      margin-bottom: 0;
+    }
+  }
+  & > .#{$-top-nav-bar-left},& > .#{$-top-nav-bar-right}{
+    flex: .5;
+    & button{
+        color: inherit;
+        height: $-top-nav-bar-size;
+        font-size: inherit;
+        border: 0;
+        background: transparent;
+        padding: 0;
+        margin:0;
+        &:focus{
+          outline: none;
+        }
+        &:active,&:hover{
+          background: transparent;
+        }
+    }
+  }
+  & > .#{$-top-nav-bar-right}{
+  	text-align: right;
+  }
+}
