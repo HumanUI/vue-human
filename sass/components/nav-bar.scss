@@ -8,19 +8,19 @@ $-nav-bar-size: 44px;
 $-nav-bar-fontsize: 0.9rem;
 
 
-.#{$-nav-bar}{
-	display: flex;
+.#{$-nav-bar} {
+  display: flex;
   align-items: center;
-	height: $-nav-bar-size;
-	z-index: 99;
-	width: 100%;
+  height: $-nav-bar-size;
+  z-index: 99;
+  width: 100%;
   position: relative;
-	background: $teal-blue;
-	color: #fff;
-	padding: 0 10px 0 5px;
+  background: $teal-blue;
+  color: #fff;
+  padding: 0 10px 0 5px;
   white-space: nowrap;
   font-size: $-nav-bar-fontsize;
-  & h1{
+  & h1 {
     flex: 1;
     text-align: center;
     overflow: hidden;
@@ -29,23 +29,24 @@ $-nav-bar-fontsize: 0.9rem;
     font-weight: normal;
     font-size: inherit;
   }
-  & a{
+  & a {
     outline: none;
     color: inherit;
     font-size: inherit;
   }
-  & .icon{
+  & .icon {
     vertical-align: -5px;
   }
-  &-center{
+  &-center {
     flex: 4;
     & input{
       margin-bottom: 0;
     }
   }
-  &-left,&-right{
+  &-left,
+  &-right {
     flex: .5;
-    & button{
+    & button {
         color: inherit;
         height: $-nav-bar-size;
         font-size: inherit;
@@ -53,15 +54,16 @@ $-nav-bar-fontsize: 0.9rem;
         background: transparent;
         padding: 0;
         margin:0;
-        &:focus{
+        &:focus {
           outline: none;
         }
-        &:active,&:hover{
+        &:active,
+        &:hover {
           background: transparent;
         }
     }
   }
-  &-right{
+  &-right {
   	text-align: right;
   }
 }

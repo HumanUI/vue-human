@@ -55,9 +55,9 @@
   }
 </script>
 <style scoped lang="scss">
-  .card{
+  .card {
     padding-top: 15px;
-    &>h1,&>div{
+    & > div {
       margin-bottom: 15px;
     }
   }

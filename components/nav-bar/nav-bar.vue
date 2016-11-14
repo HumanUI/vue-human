@@ -4,7 +4,7 @@
       <slot name="left"></slot>
     </div>
     <h1 v-if="$slots.title">
-      <mn-icon name="load-a" spin v-if="loading"></mn-icon>
+      <mn-icon name="load-c" spin v-if="loading"></mn-icon>
       <slot name="title"></slot>
     </h1>
     <div :class="[`${cssPrefix}nav-bar-center`]" v-if="$slots.center">
