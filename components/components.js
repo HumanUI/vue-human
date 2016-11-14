@@ -28,7 +28,7 @@ import Tag from './tag/tag'
 import Rate from './rate/rate'
 import RateItem from './rate/rate-item'
 import QuantityControl from './control/quantity-control'
-import NavBar from './navbar/nav-bar'
+import NavBar from './nav-bar/nav-bar'
 
 export default {
   // Column

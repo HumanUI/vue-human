@@ -64,7 +64,7 @@ const router = new VueRouter({
     },
     {
       path: '/components/navbar',
-      component: resolve => { require(['./docs/components/navbar'], resolve) }
+      component: resolve => { require(['./docs/components/nav-bar'], resolve) }
     }
   ]
 })
