@@ -6,7 +6,8 @@
     <option
       :value="index"
       :alt="option.value"
-      v-for="(option, index) in options">{{ option.label }}</option>
+      v-for="(option, index) in options"
+      :key="index">{{ option.label }}</option>
   </select>
 </template>
 

@@ -193,6 +193,11 @@ const router = new VueRouter({
           path: '/table',
           name: 'table',
           component: resolve => { require(['../components/table'], resolve) }
+        },
+        {
+          path: '/selectList',
+          name: 'selectList',
+          component: resolve => { require(['../components/selectList'], resolve) }
         }
       ]
     }

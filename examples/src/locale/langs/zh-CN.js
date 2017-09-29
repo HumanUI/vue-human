@@ -48,7 +48,8 @@ export default {
         tabBar: '底部栏',
         navBar: '顶部栏',
         menu: '手风琴',
-        table: '表格'
+        table: '表格',
+        selectList: '新下拉菜单'
       }
     }
   }

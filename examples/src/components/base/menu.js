@@ -160,6 +160,10 @@ export default [
       {
         name: Vue.t('examples.submenus.components.table'),
         push: { name: 'table' }
+      },
+      {
+        name: Vue.t('examples.submenus.components.selectList'),
+        push: { name: 'selectList' }
       }
     ]
   }
