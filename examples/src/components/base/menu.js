@@ -68,6 +68,10 @@ export default [
         push: { name: 'select' }
       },
       {
+        name: Vue.t('examples.submenus.components.selectList'),
+        push: { name: 'selectList' }
+      },
+      {
         name: Vue.t('examples.submenus.form.turn'),
         push: { name: 'turn' }
       },
@@ -160,10 +164,6 @@ export default [
       {
         name: Vue.t('examples.submenus.components.table'),
         push: { name: 'table' }
-      },
-      {
-        name: Vue.t('examples.submenus.components.selectList'),
-        push: { name: 'selectList' }
       }
     ]
   }
