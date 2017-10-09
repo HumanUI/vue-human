@@ -133,6 +133,9 @@ export default new Element({
       this.selections = this.selections.filter(item => item.value !== selection.value)
     },
     onSelect (option) {
+      if (option.disable) {
+        return
+      }
       if (this.multiple) {
         if (this.isSelect(option)) {
           this.selections = this.selections.filter(selection => selection.value !== option.value)
@@ -154,7 +157,15 @@ export default new Element({
       return this.selections.filter(selection => selection.value === option.value).length > 0
     },
     getItemClass (option) {
-      return this.isSelect(option) ? 'is-select' : ''
+      let className = ['mn-select-list-item']
+      const isSelect = this.isSelect(option)
+      if (isSelect) {
+        className.push('is-select')
+      }
+      if (option.disable) {
+        className.push('disable')
+      }
+      return className
     }
   },
   watch: {
@@ -251,6 +262,10 @@ export default new Element({
         }
         &.is-select:hover {
           opacity: 0.7;
+        }
+        &.disable {
+          cursor: not-allowed;
+          color: #bbb;
         }
       }
       .mn-select-list-status {

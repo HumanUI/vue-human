@@ -49,6 +49,14 @@
             <mn-select-list-picker :options="options.disable" :value.sync="models.disable" disable></mn-select-list-picker>
           </mn-card-body>
         </mn-card-item>
+        <mn-card-item>
+          <mn-card-prefix>
+            有禁用选项
+          </mn-card-prefix>
+          <mn-card-body>
+            <mn-select-list-picker :options="options.disableOption" :value.sync="models.disableOption"></mn-select-list-picker>
+          </mn-card-body>
+        </mn-card-item>
       </mn-card>
     </mn-section>
     <mn-section>
@@ -154,6 +162,20 @@
             -
           </mn-card-body>
         </mn-card-item>
+        <mn-card-item>
+          <mn-card-prefix>
+            disable
+          </mn-card-prefix>
+          <mn-card-body>
+            是否禁用
+          </mn-card-body>
+          <mn-card-body>
+            Boolean
+          </mn-card-body>
+          <mn-card-body>
+            false
+          </mn-card-body>
+        </mn-card-item>
       </mn-card>
     </mn-section>
     <mn-section>
@@ -201,6 +223,20 @@
           </mn-card-body>
           <mn-card-body>
             -
+          </mn-card-body>
+        </mn-card-item>
+        <mn-card-item>
+          <mn-card-prefix>
+            disable
+          </mn-card-prefix>
+          <mn-card-body>
+            是否禁用
+          </mn-card-body>
+          <mn-card-body>
+            Boolean
+          </mn-card-body>
+          <mn-card-body>
+            false
           </mn-card-body>
         </mn-card-item>
       </mn-card>
@@ -257,7 +293,8 @@ export default {
         search: undefined,
         multiple: ['Shanghai'],
         remote: undefined,
-        disable: undefined
+        disable: undefined,
+        disableOption: undefined
       },
       options: {
         default: [
@@ -294,6 +331,15 @@ export default {
         disable: [
           { label: '选择你的城市', value: undefined },
           { label: '上海', value: 'Shanghai' }
+        ],
+        disableOption: [
+          { label: '选择你的城市', value: undefined },
+          { label: '上海', value: 'Shanghai' },
+          { label: '苏州', value: 'Suzhou', disable: true },
+          { label: '杭州', value: 'Hangzhou' },
+          { label: '北京', value: 'Beijing' },
+          { label: '南京', value: 'Nanjin', disable: true },
+          { label: '天津', value: 'Tianjin' }
         ]
       }
     }
