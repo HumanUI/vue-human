@@ -30,7 +30,7 @@
             多选
           </mn-card-prefix>
           <mn-card-body>
-            <mn-select-list-picker :options="options.multiple" :value.sync="models.multiple" multiple searchable></mn-select-list-picker>
+            <mn-select-list-picker :options="options.multiple" :value.sync="models.multiple" multiple></mn-select-list-picker>
           </mn-card-body>
         </mn-card-item>
         <mn-card-item>
@@ -38,7 +38,15 @@
             远程搜索
           </mn-card-prefix>
           <mn-card-body>
-            <mn-select-list-picker :options="options.remote" :value.sync="models.remote" remote searchable :remoteMethod="remoteMethod" multiple></mn-select-list-picker>
+            <mn-select-list-picker :options="options.remote" :value.sync="models.remote" remote searchable :remoteMethod="remoteMethod"></mn-select-list-picker>
+          </mn-card-body>
+        </mn-card-item>
+        <mn-card-item>
+          <mn-card-prefix>
+            禁用
+          </mn-card-prefix>
+          <mn-card-body>
+            <mn-select-list-picker :options="options.disable" :value.sync="models.disable" disable></mn-select-list-picker>
           </mn-card-body>
         </mn-card-item>
       </mn-card>
@@ -70,7 +78,7 @@
             值
           </mn-card-body>
           <mn-card-body>
-            any
+            String, Number, Array
           </mn-card-body>
           <mn-card-body>
             -
@@ -189,7 +197,7 @@
             选项的值
           </mn-card-body>
           <mn-card-body>
-            any
+            String, Number
           </mn-card-body>
           <mn-card-body>
             -
@@ -248,7 +256,8 @@ export default {
         default: undefined,
         search: undefined,
         multiple: ['Shanghai'],
-        remote: undefined
+        remote: undefined,
+        disable: undefined
       },
       options: {
         default: [
@@ -281,6 +290,10 @@ export default {
         ],
         remote: [
 
+        ],
+        disable: [
+          { label: '选择你的城市', value: undefined },
+          { label: '上海', value: 'Shanghai' }
         ]
       }
     }

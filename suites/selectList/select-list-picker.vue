@@ -43,6 +43,9 @@ export default new Element({
     },
     remoteMethod: {
       type: Function
+    },
+    disable: {
+      type: Boolean
     }
   },
   data () {
@@ -74,11 +77,17 @@ export default new Element({
       if (this.multiple) {
         className.push('multiple')
       }
+      if (this.disable) {
+        className.push('disable')
+      }
       return className
     }
   },
   methods: {
     onClick (event) {
+      if (this.disable) {
+        return
+      }
       SelectList
         .create({
           value: this.value,
@@ -118,13 +127,16 @@ export default new Element({
     .mn-select-list-tags {
       display: flex;
       flex-wrap: wrap;
-      color: #ccc;
       .mn-select-list-tag {
         margin: 0 0.5rem;
         display: flex;
         align-items: center;
       }
     }
+  }
+  &.disable {
+    cursor: not-allowed;
+    color: #bbb;
   }
 }
 </style>
