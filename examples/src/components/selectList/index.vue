@@ -38,7 +38,7 @@
             远程搜索
           </mn-card-prefix>
           <mn-card-body>
-            <mn-select-list-picker :options="options.remote" :value.sync="models.remote" remote searchable :remoteMethod="remoteMethod"></mn-select-list-picker>
+            <mn-select-list-picker :options="options.remote" :value.sync="models.remote" remote searchable :remoteMethod="remoteMethod" multiple></mn-select-list-picker>
           </mn-card-body>
         </mn-card-item>
       </mn-card>

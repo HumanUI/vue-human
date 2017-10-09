@@ -3,13 +3,12 @@
     <div class="mn-select-list" v-if="visible" :style="{ zIndex }">
       <mn-card>
         <!-- 多选展示区 -->
-        <mn-card-item v-if="multiple">
+        <mn-card-item v-if="multiple && selections.length>0">
           <mn-card-body>
             <span class="mn-select-list-tags">
               <mn-tag v-for="(selection,index) in selections" class="mn-select-list-tag" name="green" :key="index">{{selection.label}}
                 <span class="mn-select-list-icon" @click.stop="onRemove(selection)">X</span>
               </mn-tag>
-              请选择
             </span>
           </mn-card-body>
         </mn-card-item>
@@ -122,9 +121,9 @@ export default new Element({
     whenShadeCallHiding () {
       this.hide()
     },
-    confirm (incomingValue) {
+    confirm () {
       this.hide()
-      this.$emit('confirm', incomingValue)
+      this.$emit('confirm', this.selections)
     },
     cancel () {
       this.hide()
@@ -142,12 +141,11 @@ export default new Element({
         }
       } else {
         this.selections = [option]
-        this.confirm(option.value)
+        this.confirm()
       }
     },
     onConfirm () {
-      const incomingValue = this.selections.map(selection => selection.value)
-      this.confirm(incomingValue)
+      this.confirm()
     },
     onCancel () {
       this.cancel()
@@ -252,7 +250,7 @@ export default new Element({
           color: white;
         }
         &.is-select:hover {
-          background-color: $red;
+          opacity: 0.7;
         }
       }
       .mn-select-list-status {

@@ -3,7 +3,6 @@
     <span v-if="multiple" :class="getPickerClass">
       <span class="mn-select-list-tags">
         <mn-tag v-for="(selection,index) in selections" class="mn-select-list-tag" name="green" :key="index">{{selection.label}}
-          <span class="mn-select-list-icon" @click.stop="onRemove(selection)">X</span>
         </mn-tag>
         请选择
       </span>
@@ -51,30 +50,23 @@ export default new Element({
       icons: {
         arrowDown: require('vue-human-icons/js/ios/arrow-down')
       },
-      SelectList: undefined
+      remoteOptions: undefined
     }
   },
   computed: {
     // 已选择项
     selections () {
-      if (this.remote) {
-        if (this.options === undefined) {
-          return [{ label: '加载中...', value: undefined }]
-        } else {
-          return this.options.filter(option => {
-            return option.value === this.value
-          })
-        }
+      if (this.remoteOptions) {
+        return this.remoteOptions
+      }
+      if (this.multiple) {
+        return this.options.filter(option => {
+          return this.value.includes(option.value)
+        })
       } else {
-        if (this.multiple) {
-          return this.options.filter(option => {
-            return this.value.includes(option.value)
-          })
-        } else {
-          return this.options.filter(option => {
-            return option.value === this.value
-          })
-        }
+        return this.options.filter(option => {
+          return option.value === this.value
+        })
       }
     },
     getPickerClass () {
@@ -86,12 +78,8 @@ export default new Element({
     }
   },
   methods: {
-    onRemove (selection) {
-      const value = this.selections.filter(item => item.value !== selection.value).map(item => item.value)
-      this.$emit('update:value', value)
-    },
     onClick (event) {
-      this.SelectList = SelectList
+      SelectList
         .create({
           value: this.value,
           options: this.options,
@@ -103,7 +91,16 @@ export default new Element({
         .show()
         .on(
         'confirm',
-        value => {
+        selections => {
+          let value
+          if (this.remote) {
+            this.remoteOptions = selections
+          }
+          if (this.multiple) {
+            value = selections.map(selection => selection.value)
+          } else {
+            value = selections[0].value
+          }
           this.$emit('update:value', value)
         })
     }
@@ -123,19 +120,9 @@ export default new Element({
       flex-wrap: wrap;
       color: #ccc;
       .mn-select-list-tag {
-        margin: 0 0.5rem 0.2rem 0;
+        margin: 0 0.5rem;
         display: flex;
         align-items: center;
-        .mn-select-list-icon {
-          padding: 0 0.4rem;
-          margin: 0 0.2rem;
-          border-radius: 0.2rem;
-          cursor: pointer;
-          &:hover {
-            background-color: black;
-            opacity: 0.3;
-          }
-        }
       }
     }
   }
