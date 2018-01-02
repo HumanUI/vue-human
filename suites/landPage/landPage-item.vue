@@ -15,9 +15,6 @@
     props: {
       itemIndex: {
         type: Number
-      },
-      defaultBgColor: {
-        type: String
       }
     },
     data () {

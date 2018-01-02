@@ -24,6 +24,7 @@
       @touchend="isPhone ? handleDirection($event) : null">
       <div class="mn-landPage__body-scroll"
         ref="landPage_body"
+        :style="{'transition-duration': `${scrollSpeed/1000}s`}"
         @transitionend='beforeToNextItem'>
         <slot></slot>
       </div>
@@ -73,9 +74,13 @@
         type: Boolean,
         default: false
       },
-      speed: {
+      scrollSpeed: {
         type: Number,
-        default: 200
+        default: 500
+      },
+      debounceSpeed: {
+        type: Number,
+        default: 100
       },
       renderPageBtnPrev: {
         type: Function
@@ -103,10 +108,10 @@
         return isPhone()
       },
       throttlePlan (e) {
-        return throttle(this.handleWheel(e), 100)
+        return throttle(this.handleWheel(e), this.debounceSpeed)
       },
       debouncePlan (e) {
-        return debounce(this.handleWheel(e), 100)
+        return debounce(this.handleWheel(e), this.debounceSpeed)
       }
     },
     mounted () {
@@ -248,7 +253,7 @@
     &-scroll {
       width: 100%;
       height: 100%;
-      transition-duration: 1s;
+      // transition-duration: 1s;
     }
   }
   &__btn {
