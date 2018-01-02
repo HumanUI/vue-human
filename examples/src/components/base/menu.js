@@ -158,6 +158,10 @@ export default [
       {
         name: '表格',
         push: { name: 'table' }
+      },
+      {
+        name: '全屏滚动',
+        push: { name: 'landPage' }
       }
     ]
   }
