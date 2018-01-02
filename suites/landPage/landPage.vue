@@ -8,7 +8,13 @@
         v-if="turnPageBtn && touchState.index > 0"
         @click="isPhone ? null : scorllToItem(touchState.index - 1)"
         @touchstart="isPhone ? scorllToItem(touchState.index - 1) : null">
-        <i class="self__icon__arrow-up mn-landPage__btn-icon"></i>
+        <template>
+          <pageBtn :renderPageBtn='renderPageBtnPrev' v-if="renderPageBtnPrev"></pageBtn>
+          <template v-else>
+            <i class="mn-landPage__btn-bg"></i>
+            <i class="self__icon__arrow-up mn-landPage__btn-icon"></i>
+          </template>
+        </template>
       </div>
     </transition>
     <div
@@ -33,13 +39,18 @@
     <transition
       enter-active-class="fadeIn animated"
       leave-active-class="fadeOut animated">
-      <div
-        class="mn-landPage__btn mn-landPage__btn-next"
+      <div class="mn-landPage__btn mn-landPage__btn-next"
         v-if="turnPageBtn && touchState.index < this.maxIndex - 1"
         @click="isPhone ? null : scorllToItem(touchState.index + 1)"
-        @touchStart="isPhone ? scorllToItem(touchState.index + 1) : null">
+        @touchstart="isPhone ? scorllToItem(touchState.index + 1) : null">
+        <template>
+          <pageBtn :renderPageBtn='renderPageBtnNext' v-if="renderPageBtnNext"></pageBtn>
+          <template v-else>
+            <i  class="mn-landPage__btn-bg"></i>
+            <i class="self__icon__arrow-down mn-landPage__btn-icon"></i>
+          </template>
+        </template>
         <!-- <mn-icon :name="iosArrowUp" class="mn-landPage__btn-icon"></mn-icon> -->
-        <i class="self__icon__arrow-down mn-landPage__btn-icon"></i>
       </div>
     </transition>
   </div>
@@ -47,6 +58,7 @@
 <script>
   // import iosArrowUp from 'vue-human-icons/js/ios/arrow-up'
   // import iosArrowDown from 'vue-human-icons/js/ios/arrow-down'
+  import pageBtn from './pageBtn'
   import Element from 'vue-human/utils/Element'
   import { isPhone } from './utils'
   import { throttle, debounce } from 'lodash'
@@ -60,6 +72,16 @@
       pageNumber: {
         type: Boolean,
         default: false
+      },
+      speed: {
+        type: Number,
+        default: 200
+      },
+      renderPageBtnPrev: {
+        type: Function
+      },
+      renderPageBtnNext: {
+        type: Function
       }
     },
     data () {
@@ -72,6 +94,9 @@
         },
         maxIndex: 0
       }
+    },
+    components: {
+      pageBtn
     },
     computed: {
       isPhone () {
@@ -93,7 +118,6 @@
         }
       })
       this.maxIndex = len
-
       if (this.$children.length > 0) {
         this.beforeToNextItem()
         window.addEventListener('resize', this.resizeToIndex)
@@ -247,7 +271,6 @@
       position: absolute;
       left: 50%;
       top: 50%;
-      // transform: translate(-50%,-50%);
       margin-left: -14px;
       margin-top: -14px;
       padding: 4px;
@@ -261,8 +284,7 @@
       border-radius: 16px;
       background-color: rgba(0,0,0,0.6)
     }
-    &:after {
-      content: '';
+    &-bg {
       position: absolute;
       z-index: 30;
       top: 0;

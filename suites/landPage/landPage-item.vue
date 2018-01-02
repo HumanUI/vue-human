@@ -36,13 +36,15 @@
 
 .mn-landPage {
   &__item {
-    display: flex;
-    padding: 100px 20px;
+    // display: flex;
+    padding: 5rem 1rem;
     width: 100%;
     height: 100%;
     overflow: hidden;
     &-body {
-      flex-grow: 1
+      // flex-grow: 1
+      width: 100%;
+      height: 100%;
     }
   }
 }
