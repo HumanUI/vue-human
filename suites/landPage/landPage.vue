@@ -1,20 +1,20 @@
 <template>
   <div class="mn-landPage">
-    <transition 
+    <transition
       enter-active-class="fadeIn animated"
       leave-active-class="fadeOut animated">
-      <div 
+      <div
         class="mn-landPage__btn mn-landPage__btn-prev"
         v-if="turnPageBtn && touchState.index > 0"
         @click="isPhone ? null : scorllToItem(touchState.index - 1)"
         @touchstart="isPhone ? scorllToItem(touchState.index - 1) : null">
         <i class="self__icon__arrow-up mn-landPage__btn-icon"></i>
       </div>
-    </transition>       
+    </transition>
     <div
       class="mn-landPage__body"
       @mousewheel="isPhone ? null : debouncePlan($event)"
-      @touchstart="isPhone ? setStartPosition($event) : null" 
+      @touchstart="isPhone ? setStartPosition($event) : null"
       @touchend="isPhone ? handleDirection($event) : null">
       <div class="mn-landPage__body-scroll"
         ref="landPage_body"
@@ -22,7 +22,7 @@
         <slot></slot>
       </div>
     </div>
-    <div 
+    <div
       class="mn-landPage__index"
       :style="{
         transform: `rotateY(${touchState.index * 360}deg)`
@@ -33,7 +33,7 @@
     <transition
       enter-active-class="fadeIn animated"
       leave-active-class="fadeOut animated">
-      <div 
+      <div
         class="mn-landPage__btn mn-landPage__btn-next"
         v-if="turnPageBtn && touchState.index < this.maxIndex - 1"
         @click="isPhone ? null : scorllToItem(touchState.index + 1)"
@@ -41,7 +41,7 @@
         <!-- <mn-icon :name="iosArrowUp" class="mn-landPage__btn-icon"></mn-icon> -->
         <i class="self__icon__arrow-down mn-landPage__btn-icon"></i>
       </div>
-    </transition>       
+    </transition>
   </div>
 </template>
 <script>
@@ -85,7 +85,15 @@
       }
     },
     mounted () {
-      this.maxIndex = this.$children.length
+      // this.maxIndex = this.$children.length
+      let len = 0
+      this.$children.forEach((node) => {
+        if (node.$el.className.indexOf('mn-landPage__item') > -1) {
+          len++
+        }
+      })
+      this.maxIndex = len
+
       if (this.$children.length > 0) {
         this.beforeToNextItem()
         window.addEventListener('resize', this.resizeToIndex)
@@ -134,8 +142,10 @@
           return
         }
         const wrapper = this.$refs.landPage_body
-        this.touchState.index = index
-        wrapper.style.transform = `translateY(-${this.touchState.index * wrapper.offsetHeight}px)`
+        this.$nextTick(() => {
+          this.touchState.index = index
+          wrapper.style.transform = `translateY(-${this.touchState.index * wrapper.offsetHeight}px)`
+        })
       },
       beforeToNextItem () {
         const item = this.$children.find((item) => {
@@ -243,7 +253,7 @@
       padding: 4px;
       width: 28px;
       height: 28px;
-      animation: 0.8s pulse-small infinite;  
+      animation: 0.8s pulse-small infinite;
       z-index: 40;
       font-size: 20px;
       font-weight: bold;
@@ -260,7 +270,7 @@
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      animation: 0.8s pulse infinite;  
+      animation: 0.8s pulse infinite;
       background-color: rgba(0,0,0,0.5)
     }
   }
@@ -298,7 +308,7 @@
     border-left-width: 1px;
     border-radius: 2px;
     border-color: #fff transparent transparent #fff;
-    border-style: solid   
+    border-style: solid
 }
 .self__icon__arrow {
   &-down {
@@ -319,8 +329,8 @@
     &::after {
       @extend .self__icon__arrow;
       transform: translate(8px,10px) rotate(45deg);
-    }   
+    }
   }
- 
+
 }
 </style>
