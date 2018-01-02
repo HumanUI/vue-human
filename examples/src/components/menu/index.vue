@@ -101,7 +101,6 @@
 
 <script>
   import menu from 'vue-human/suites/menu'
-
   export default {
     components: {
       ...menu.map()

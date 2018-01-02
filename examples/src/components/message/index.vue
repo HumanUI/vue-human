@@ -24,7 +24,6 @@
 
 <script>
   import Message from 'vue-human/utils/Message'
-
   export default {
     data () {
       return {

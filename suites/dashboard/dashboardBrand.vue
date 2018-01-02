@@ -6,7 +6,6 @@
 
 <script>
   import Element from 'vue-human/utils/Element'
-
   export default new Element({
     name: 'mn-dashboard-brand'
   })
