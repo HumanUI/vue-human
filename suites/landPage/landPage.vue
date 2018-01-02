@@ -5,7 +5,7 @@
       leave-active-class="fadeOut animated">
       <div 
         class="mn-landPage__btn mn-landPage__btn-prev"
-        v-if="touchState.index > 0"
+        v-if="turnPageBtn && touchState.index > 0"
         @click="isPhone ? null : scorllToItem(touchState.index - 1)"
         @touchstart="isPhone ? scorllToItem(touchState.index - 1) : null">
         <i class="self__icon__arrow-up mn-landPage__btn-icon"></i>
@@ -26,7 +26,8 @@
       class="mn-landPage__index"
       :style="{
         transform: `rotateY(${touchState.index * 360}deg)`
-      }">
+      }"
+      v-if="pageNumber">
       {{touchState.index + 1}}
     </div>
     <transition
@@ -34,7 +35,7 @@
       leave-active-class="fadeOut animated">
       <div 
         class="mn-landPage__btn mn-landPage__btn-next"
-        v-if="touchState.index < this.maxIndex - 1"
+        v-if="turnPageBtn && touchState.index < this.maxIndex - 1"
         @click="isPhone ? null : scorllToItem(touchState.index + 1)"
         @touchStart="isPhone ? scorllToItem(touchState.index + 1) : null">
         <!-- <mn-icon :name="iosArrowUp" class="mn-landPage__btn-icon"></mn-icon> -->
@@ -53,6 +54,10 @@
     name: 'mn-landPage',
     props: {
       turnPageBtn: {
+        type: Boolean,
+        default: false
+      },
+      pageNumber: {
         type: Boolean,
         default: false
       }
@@ -80,7 +85,6 @@
       }
     },
     mounted () {
-      console.log(this.$children)
       this.maxIndex = this.$children.length
       if (this.$children.length > 0) {
         this.beforeToNextItem()
@@ -152,12 +156,10 @@
   from {
     opacity: 1;
   }
-
   to {
     opacity: 0;
   }
 }
-
 .fadeOut {
   animation-name: fadeOut;
 }
@@ -165,7 +167,6 @@
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
@@ -173,7 +174,6 @@
 .fadeIn {
   animation-name: fadeIn;
 }
-
 @keyframes pulse {
   from {
     transform: scale3d(1, 1, 1);
@@ -181,7 +181,6 @@
   50% {
     transform: scale3d(1.2, 1.2, 1.2);
   }
-
   to {
     opacity: 0;
     transform: scale3d(1, 1, 1);
@@ -191,11 +190,9 @@
   from {
     transform: scale3d(1, 1, 1);
   }
-
   50% {
     transform: scale3d(1.1, 1.1, 1.1);
   }
-
   to {
     transform: scale3d(1, 1, 1);
   }
@@ -214,8 +211,6 @@
     position: relative;
     width: 100%;
     height: 100%;
- 
-    // overflow: hidden;
     &-scroll {
       width: 100%;
       height: 100%;
@@ -226,15 +221,12 @@
     position: absolute;
     left: 50%;
     z-index: 10;
-
     width: 40px;
     height: 40px;
     border-radius: 20px;
     text-align: center;
-    // line-height: 40px;
     transform: translate(-50%, 0);
     cursor: pointer;
-    // background-color: rgba(0,0,0,0.5);
     &-prev {
       top: 10px;
     }
@@ -248,11 +240,11 @@
       // transform: translate(-50%,-50%);
       margin-left: -14px;
       margin-top: -14px;
+      padding: 4px;
       width: 28px;
       height: 28px;
       animation: 0.8s pulse-small infinite;  
       z-index: 40;
-      padding: 4px;
       font-size: 20px;
       font-weight: bold;
       color: #fff;
