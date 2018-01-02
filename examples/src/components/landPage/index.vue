@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     renderPageBtnPrev (h) {
-      return <span>render</span>
+      return <span>prev</span>
     }
   }
 }
