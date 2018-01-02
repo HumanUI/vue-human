@@ -4,6 +4,8 @@
       style="background-color: #dbfffa"
       turnPageBtn
       pageNumber
+      :scrollSpeed='1000'
+      :debounceSpeed='100'
       :renderPageBtnPrev='renderPageBtnPrev'>
       <!--
       <mn-landPage-item :itemIndex='0'>
