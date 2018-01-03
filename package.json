@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "start": "yarn run example",
-    "build": "rollup -c ./scripts/rollup/build.js",
+    "build": "rollup -w -c ./scripts/rollup/build.js",
     "docs:api": "rm -rf docs/api && esdoc -c scripts/esdoc/esdoc.json",
     "docs:vue": "vue-styleguidist server --config scripts/styleguidist/vuedoc.js",
     "docs:vue:build": "vue-styleguidist build --config scripts/styleguidist/vuedoc.js",

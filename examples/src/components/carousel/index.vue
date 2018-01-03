@@ -15,6 +15,7 @@
     components: Object.assign({}, carousel),
     data () {
       return {
+        loop: true,
         models: {
           autoplay: false
         },
