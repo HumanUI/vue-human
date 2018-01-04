@@ -67,5 +67,8 @@
   "engines": {
     "node": ">= 8.9.0",
     "npm": ">= 5.5.0"
+  },
+  "dependencies": {
+    "better-scroll": "^1.7.0"
   }
 }

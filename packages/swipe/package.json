@@ -1,0 +1,14 @@
+{
+  "name": "@humans/swipe",
+  "version": "3.0.0-alpha.12",
+  "description": "Component state swipe in @human.",
+  "author": "Zhang Jun <zjun_9053@163.com>",
+  "license": "MIT",
+  "module": "dist/main.esm.js",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

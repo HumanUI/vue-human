@@ -48,7 +48,7 @@ export default {
       transitionOpen: false, // 动画效果是否开启
       autoplayDuration: 2000, // 循环轮播的间隔时间
       autoplayDelay: 2000, // 循环轮播延迟多久后启动
-      requestAutoplay: false // 是否请求循环轮播
+      requestAutoplay: true // 是否请求循环轮播
     };
   },
   computed: {
