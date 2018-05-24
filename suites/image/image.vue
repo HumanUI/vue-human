@@ -8,15 +8,16 @@
       :class="{ 'is-active': !showSource }"
       :style="{
         'padding-bottom': `${ratio * 100}%`,
-        'background-image': `url(${thumb})`
+        'background-image': thumb ? `url(${thumb})` : undefined
       }"></div>
     <img class="mn-image-source"
       :class="{
         'is-active': showSource,
         [`is-${type}`]: !!type
       }"
-      :src="source"
-      ref="source">
+      :src="showSource && source"
+      :data-src="source"
+      >
   </div>
 </template>
 
@@ -50,15 +51,13 @@
     },
     methods: {
       observerSource () {
-        if (!this.source) return
+        if (!this.source || this.showSource) return
 
-        if (this.$refs.source.complete) {
+        const img = new Image()
+        img.onload = () => {
           this.showSource = true
-        } else {
-          this.$refs.source.addEventListener('load', () => {
-            this.showSource = true
-          })
         }
+        img.src = this.source
       }
     },
     mounted () {
