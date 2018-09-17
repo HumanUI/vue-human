@@ -44,10 +44,15 @@
         index: 0,                     // 目前轮播的 item 的下标
         x: 0,                         // 横向偏移值
         width: undefined,             // carousel 的宽度
-        transitionOpen: false,        // 动画效果是否开启
-        autoplayDuration: 2000,       // 循环轮播的间隔时间
+        transitionOpen: false,
         autoplayDelay: 2000,          // 循环轮播延迟多久后启动
         requestAutoplay: false        // 是否请求循环轮播
+      }
+    },
+    props: {
+      autoplayDuration: {
+        type: Number,
+        default: 2000
       }
     },
     computed: {
