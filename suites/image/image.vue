@@ -15,9 +15,8 @@
         'is-active': showSource,
         [`is-${type}`]: !!type
       }"
-      :src="showSource && source"
-      :data-src="source"
-      >
+      :src="source"
+      ref="source">
   </div>
 </template>
 
@@ -51,13 +50,15 @@
     },
     methods: {
       observerSource () {
-        if (!this.source || this.showSource) return
+        if (!this.source) return
 
-        const img = new Image()
-        img.onload = () => {
+        if (this.$refs.source.complete) {
           this.showSource = true
+        } else {
+          this.$refs.source.addEventListener('load', () => {
+            this.showSource = true
+          })
         }
-        img.src = this.source
       }
     },
     mounted () {
